@@ -55,9 +55,8 @@ bool resolveSudoku(int n, int **matriz, int linha, int coluna){
         if (verifica(n, matriz, linha, coluna, i)){
             matriz[linha][coluna] = i;
 
-            if (resolveSudoku(n, matriz, linha, coluna)){
+            if (resolveSudoku(n, matriz, linha, coluna))
                 return true;
-            }
             matriz[linha][coluna] = VAZIO;
         }
     }
@@ -71,18 +70,16 @@ bool verifica(int n, int **matriz, int linha, int coluna, int numero){
 
 bool verificaLinha(int n, int **matriz, int linha, int numero){
     for (int coluna = 0; coluna < n; coluna++){
-        if (matriz[linha][coluna] == numero){
+        if (matriz[linha][coluna] == numero)
             return true;
-        }
     }
     return false;
 }
 
 bool verificaColuna(int n, int **matriz, int coluna, int numero){
     for (int linha = 0; linha <  n; linha++){
-        if (matriz[linha][coluna] == numero){
+        if (matriz[linha][coluna] == numero)
             return true;
-        }
     }
     return false;
 }
@@ -99,9 +96,8 @@ bool verificaFinal(int n, int **matriz){
 
 void imprimeSudoku(int n, int **matriz){
     for (int linha = 0; linha < n; linha++){
-        for (int coluna = 0; coluna < n; coluna++){
+        for (int coluna = 0; coluna < n; coluna++)
             cout << matriz[linha][coluna];
-        }
         cout << "\n";
     }
 }
