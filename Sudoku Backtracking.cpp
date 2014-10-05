@@ -19,10 +19,9 @@ int main(void){
     for(int i = 0; i < n; i++)
     	matriz[i] = new int[n];
 
-    for (int i = 0; i < n; i++){
+    for (int i = 0; i < n; i++)
         for (int j = 0; j < n; j++)
             cin >> matriz[i][j];
-    }
 
     if (aux_resolveSudoku(n, matriz) == true){
         cout << "Solucao:\n";
@@ -38,12 +37,10 @@ int main(void){
 }
 
 bool aux_resolveSudoku(int n, int **matriz){
-    for (int linha = 0; linha < n; linha++){
-        for (int coluna = 0; coluna < n; coluna++){
+    for (int linha = 0; linha < n; linha++)
+        for (int coluna = 0; coluna < n; coluna++)
             if (resolveSudoku(n, matriz, linha, coluna) && verificaFinal(n, matriz))
                 return true;
-        }
-    }
     return false;
 }
 
@@ -51,7 +48,7 @@ bool resolveSudoku(int n, int **matriz, int linha, int coluna){
     if (matriz[linha][coluna] != VAZIO)
         return true;
 
-    for (int i = 1; i <= n; i++){
+    for (int i = 1; i <= n; i++)
         if (verifica(n, matriz, linha, coluna, i)){
             matriz[linha][coluna] = i;
 
@@ -59,8 +56,6 @@ bool resolveSudoku(int n, int **matriz, int linha, int coluna){
                 return true;
             matriz[linha][coluna] = VAZIO;
         }
-    }
-
     return false;
 }
 
@@ -69,28 +64,24 @@ bool verifica(int n, int **matriz, int linha, int coluna, int numero){
 }
 
 bool verificaLinha(int n, int **matriz, int linha, int numero){
-    for (int coluna = 0; coluna < n; coluna++){
+    for (int coluna = 0; coluna < n; coluna++)
         if (matriz[linha][coluna] == numero)
             return true;
-    }
     return false;
 }
 
 bool verificaColuna(int n, int **matriz, int coluna, int numero){
-    for (int linha = 0; linha <  n; linha++){
+    for (int linha = 0; linha <  n; linha++)
         if (matriz[linha][coluna] == numero)
             return true;
-    }
     return false;
 }
 
 bool verificaFinal(int n, int **matriz){
-    for (int i = 0; i < n; i++){
-        for (int j = 0; j < n; j++){
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < n; j++)
             if (matriz[i][j] == VAZIO)
                 return false;
-        }
-    }
     return true;
 }
 
